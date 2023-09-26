@@ -26,6 +26,9 @@ git branch -a #查看所有分支
 git branch # 查看当前分支, 带*
 git checkout branch_name # swith branch
 
+## 1.4 .git/config文件中含括access_token信息，可访问别的仓库
+
+
 
 现有多数工具不支持branch, git log只查看当前分支
 例如工具https://github.com/WangYihang/GitHacker,
