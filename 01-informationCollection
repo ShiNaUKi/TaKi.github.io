@@ -15,6 +15,18 @@ git diff HEAD commit-id
 git reset --hard HEAD^
 
 ## 1.3 branch
+
+修改分支
+git checkout master #切换到基础分支
+git checkout -b newBranch # 创建新的分支
+git add *
+git commit -m "init newBranch"
+git push origin newBranch
+git branch -a #查看所有分支
+git branch # 查看当前分支, 带*
+git checkout branch_name # swith branch
+
+
 现有多数工具不支持branch, git log只查看当前分支
 例如工具https://github.com/WangYihang/GitHacker,
 python GitHacker.py http://127.0.0.1:8000/.git/
