@@ -1,0 +1,20 @@
+Chapter01 InformationCollection
+
+# scrabble 对.git文件进行恢复
+https://github.com/denny0223/scrabble
+./scrabble https://example.com
+
+# git init
+git init
+git add index.php
+git commmit -m "first"
+
+# backroll
+git log
+git diff HEAD commit-id
+git reset --hard HEAD^
+
+# branch
+# 现有多数工具不支持branch, git log只查看当前分支
+# 例如工具https://github.com/WangYihang/GitHacker,
+python GitHacker.py http://127.0.0.1:8000/.git/
