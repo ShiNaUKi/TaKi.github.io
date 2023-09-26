@@ -1,6 +1,6 @@
 # Chapter01 InformationCollection
 
-## 1. git
+## 隐藏目录泄露
 ### 1.1 scrabble 对.git文件进行恢复
 https://github.com/denny0223/scrabble
 ./scrabble https://example.com
@@ -26,6 +26,19 @@ git branch -a #查看所有分支
 git branch # 查看当前分支, 带*
 git checkout branch_name # swith branch
 
+# 2.svn
+.svn/entries 或 wc.db文件获取服务器源码
+两类工具http://github.com/kost/dvcs-ripper, Seay-svn(windows下的源代码备份漏洞)
+
+# 3.HG
+初始化项目时，存在.hg隐藏文件夹
+https://github.com/kost/dvcs-ripper
+
+# 4.经验
+目录泄露多数来自目录扫描, 开源的目录扫描工具https://github.com/maurosoria/dirsearch
+
+# 5. 本文
+
 ## 1.4 .git/config文件中含括access_token信息，可访问别的仓库
 
 
@@ -50,6 +63,27 @@ git diff HEAD commit-id, 查看分支差异
 
 
 
+# 敏感备份文件
+# 1. gedit 备份文件以~结尾, 例如flag~
+# 2.vim, 文件格式为".文件名.swap"
+  # 当存在.flag.swap文件时，如何有效恢复文件
+  torch flag #创建空的文件
+  vim -r flag # 恢复
+
+# 3.常规文件
+robots.txt: 记录目录和一些CMS版本文件
+readme.md: 记录CMS版本和地址
+www.zip/rar/tar.gz 网站备份源码
+
+# 4.总结
+存在线上运维题目，需实时监看文件夹
+vim第一次异常文件为"*.swp", 
+  第二次异常为"*.swo",
+  第三次异常为"*.swn"
+还存在"*.un.文件名.swp"
+
+# Banner识别
+# 1.
 
 
 
