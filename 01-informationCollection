@@ -26,23 +26,7 @@ git branch -a #查看所有分支
 git branch # 查看当前分支, 带*
 git checkout branch_name # swith branch
 
-# 2.svn
-.svn/entries 或 wc.db文件获取服务器源码
-两类工具http://github.com/kost/dvcs-ripper, Seay-svn(windows下的源代码备份漏洞)
-
-# 3.HG
-初始化项目时，存在.hg隐藏文件夹
-https://github.com/kost/dvcs-ripper
-
-# 4.经验
-目录泄露多数来自目录扫描, 开源的目录扫描工具https://github.com/maurosoria/dirsearch
-
-# 5. 本文
-
 ## 1.4 .git/config文件中含括access_token信息，可访问别的仓库
-
-
-
 现有多数工具不支持branch, git log只查看当前分支
 例如工具https://github.com/WangYihang/GitHacker,
 python GitHacker.py http://127.0.0.1:8000/.git/
@@ -60,6 +44,18 @@ if __name__ == "__main__":
 调用python GitHacker.py进行恢复, 
 在文件夹内，调用git log -all, git branch -v 可查看到分支secret
 git diff HEAD commit-id, 查看分支差异
+
+# 2.svn
+.svn/entries 或 wc.db文件获取服务器源码
+两类工具http://github.com/kost/dvcs-ripper, Seay-svn(windows下的源代码备份漏洞)
+
+# 3.HG
+初始化项目时，存在.hg隐藏文件夹
+https://github.com/kost/dvcs-ripper
+
+# 4.经验
+目录泄露多数来自目录扫描, 开源的目录扫描工具https://github.com/maurosoria/dirsearch
+
 
 
 
