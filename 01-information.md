@@ -3,21 +3,26 @@
 
 ## 隐藏目录泄露
 ### 1.1 scrabble 对.git文件进行恢复
-https://github.com/denny0223/scrabble
-./scrabble https://example.com
-git init
+https://github.com/denny0223/scrabble <br/>
+./scrabble https://example.com <br/>
+```
+git init 
 git add index.php
 git commmit -m "first"
+```
 
 
 ### 1.2 backroll
+```
 git log
 git diff HEAD commit-id
-git reset --hard HEAD^
+git reset --hard HEAD^  # 回滚到上一个版本
+```
 
 ### 1.3 branch
 
 修改分支
+```
 git checkout master #切换到基础分支
 git checkout -b newBranch # 创建新的分支
 git add *
@@ -26,16 +31,19 @@ git push origin newBranch
 git branch -a #查看所有分支
 git branch # 查看当前分支, 带*
 git checkout branch_name # swith branch
+```
 
 ### 1.4 .git/config文件中含括access_token信息，可访问别的仓库
-现有多数工具不支持branch, git log只查看当前分支
+现有多数工具不支持branch, git log只查看当前分支 <br/>
 例如工具https://github.com/WangYihang/GitHacker,
+```
 python GitHacker.py http://127.0.0.1:8000/.git/
 git log --all # 查看所有记录
 git brance -v # 只可查看master分支
 git reflog 查看checkout记录， 可看到其他分支secret
-
 wget http://127.0.0.1:8000/.git/refs/heads/secret # 获取其他分支文件
+```
+
 ```修改GitHacker.py, 直接调用fixmissing函数进行恢复
   if __name__ == "__main__":
      main()
@@ -43,22 +51,20 @@ wget http://127.0.0.1:8000/.git/refs/heads/secret # 获取其他分支文件
     temppath = replace_bad_chars(get_prefix(baseurl))
     fixmissing(baseurl, temppath)
 ```
-调用python GitHacker.py进行恢复, 
-在文件夹内，调用git log -all, git branch -v 可查看到分支secret
-git diff HEAD commit-id, 查看分支差异
+调用python GitHacker.py进行恢复,  <br/>
+在文件夹内，调用git log -all, git branch -v 可查看到分支secret <br/>
+git diff HEAD commit-id, 查看分支差异 <br/>
 
 ### 2.svn
-.svn/entries 或 wc.db文件获取服务器源码
+.svn/entries 或 wc.db文件获取服务器源码 <br/>
 两类工具http://github.com/kost/dvcs-ripper, Seay-svn(windows下的源代码备份漏洞)
 
 ### 3.HG
-初始化项目时，存在.hg隐藏文件夹
+初始化项目时，存在.hg隐藏文件夹 <br/>
 https://github.com/kost/dvcs-ripper
 
 ### 4.经验
 目录泄露多数来自目录扫描, 开源的目录扫描工具https://github.com/maurosoria/dirsearch
-
-
 
 
 ### 敏感备份文件
